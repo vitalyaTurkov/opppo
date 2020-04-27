@@ -1,0 +1,20 @@
+@startuml
+(Изменение рисунка уровня) as edit
+(Создание уровня) as create
+(Удаление уровня) as delete
+(Просмотр списка уровней) as see
+(Отмена внесенных изменений) as cancel
+
+left to right direction
+
+Пользователь -- create
+Пользователь -- delete
+Пользователь -- edit
+Пользователь -- see
+
+create .> see:<<include>>
+delete .> see:<<include>>
+edit <. cancel:<<extend>>
+
+
+@enduml
