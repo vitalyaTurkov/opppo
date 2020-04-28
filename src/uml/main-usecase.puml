@@ -4,6 +4,8 @@
 (Удаление уровня) as delete
 (Просмотр списка уровней) as see
 (Отмена внесенных изменений) as cancel
+(Создание точки рисунка) as createPoint
+(Удаление точки рисунка) as deletePoint
 
 left to right direction
 
@@ -16,5 +18,9 @@ create .> see:<<include>>
 delete .> see:<<include>>
 edit <. cancel:<<extend>>
 
+create ..> createPoint:<<include>>
+create ..> deletePoint:<<include>>
+edit ..> createPoint:<<include>>
+edit ..> deletePoint:<<include>>
 
 @enduml
