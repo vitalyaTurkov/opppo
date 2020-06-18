@@ -1,0 +1,64 @@
+@startuml
+class Group {
+    +removeAll();
+    +add();
+}
+
+class MainUI {
+    -final Storage<Level> storage
+    +void reload()
+}
+
+node "Работа с файлом уровней" as workWithFile {
+}
+
+class Button {
+}
+
+class LevelComponent {
+  +constructor(Level level, onDelete, onEdit)
+}
+
+class MainUIRoot {
+    +constructor(List<Level> items, onEdit, onRemove, onAdd)
+}
+
+class Application {}
+
+class LevelEditor {
+    +start()
+}
+
+class LevelCanvas {
+    constructor(Level level)
+}
+
+class Canvas {
+}
+
+class EditLevelComponent {
+    constructor(Level level, Consumer<Level> onSave)
+}
+
+class NumberField {
+}
+
+class ComboBox {
+}
+
+MainUI --* MainUIRoot
+Group <|-- MainUI
+MainUIRoot --* LevelComponent
+MainUIRoot --* EditLevelComponent
+Application <|-- LevelEditor
+LevelEditor --* MainUI
+LevelComponent --* Button
+EditLevelComponent --* Button
+EditLevelComponent --* NumberField
+EditLevelComponent --* ComboBox
+EditLevelComponent --* LevelCanvas
+LevelComponent --* LevelCanvas
+Canvas <|-- LevelCanvas
+MainUI - workWithFile
+
+@enduml

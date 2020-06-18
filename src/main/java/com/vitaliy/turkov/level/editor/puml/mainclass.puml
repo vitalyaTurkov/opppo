@@ -1,0 +1,63 @@
+@startuml
+node "Работа с файлом уровней" {
+'class LevelEditor {
+'}
+'
+'class Application {
+'}
+'
+'class MainUI {
+'}
+'class Scene {
+'}
+
+interface Storage<T> {
+    +List<T> items();
+    +void remove(Integer number);
+    +void update(Integer number, T item);
+    +void add(T level);
+}
+
+interface File {
+    +Scanner scanner();
+    +void replaceLineByNumber(Integer lineNumber, String value);
+    +void deleteLineByNumber(Integer lineNumber);
+    +void append(String item);
+}
+
+interface Deserializer<FROM, TO> {
+    TO item(FROM itemAs);
+}
+
+interface Serializer<FROM, TO> {
+    TO item(FROM itemAs);
+}
+
+class StorageFromFile<Level> {
+    -final File file;
+    -final Deserializer<String, T> deserializer;
+    -final Serializer<T, String> serializer;
+}
+
+class LevelFile {
+}
+
+class LevelDeserializerFromString {
+}
+
+class LevelSerializerToString {
+}
+
+
+}
+Storage <|.. StorageFromFile
+File <|.. LevelFile
+Deserializer <|.. LevelDeserializerFromString
+Serializer <|.. LevelSerializerToString
+StorageFromFile ..> File
+StorageFromFile ..> Deserializer
+StorageFromFile ..> Serializer
+
+
+
+@enduml
