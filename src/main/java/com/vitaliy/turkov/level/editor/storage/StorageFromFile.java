@@ -31,4 +31,9 @@ public final class StorageFromFile<T> implements Storage<T> {
     public void update(Integer number, T item) {
         file.replaceLineByNumber(number, serializer.item(item));
     }
+
+    @Override
+    public void add(T level) {
+        file.append(serializer.item(level));
+    }
 }
