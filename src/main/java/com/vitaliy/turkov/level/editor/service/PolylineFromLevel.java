@@ -7,54 +7,54 @@ import com.vitaliy.turkov.level.editor.ui.Polyline;
 
 public final class PolylineFromLevel {
     private final Level level;
-    private static final Integer RATIO = 1;
-    private static final Integer STEP_LENGTH = 15 * RATIO;
+    private final Integer iconSize;
 
-    public PolylineFromLevel(Level level) {
+    public PolylineFromLevel(Level level, Integer iconSize) {
         this.level = level;
+        this.iconSize = iconSize;
     }
 
     public Polyline polyline() {
         Polyline result = new Polyline();
-        int previousX = level.getStartPointX() * STEP_LENGTH;
-        int previousY = level.getStartPointY() * STEP_LENGTH;
+        int previousX = level.getStartPointX() * iconSize;
+        int previousY = level.getStartPointY() * iconSize;
         result.addPoint(previousX, previousY);
         for (Step step : level.getSteps()) {
             switch (step.getDirection()) {
                 case UP:
-                    previousY = previousY - STEP_LENGTH * step.getLength();
+                    previousY = previousY - iconSize * step.getLength();
                     result.addPoint(previousX, previousY);
                     break;
                 case DOWN:
-                    previousY = previousY + STEP_LENGTH * step.getLength();
+                    previousY = previousY + iconSize * step.getLength();
                     result.addPoint(previousX, previousY);
                     break;
                 case RIGHT:
-                    previousX = previousX + STEP_LENGTH * step.getLength();
+                    previousX = previousX + iconSize * step.getLength();
                     result.addPoint(previousX, previousY);
                     break;
                 case UP_RIGHT:
-                    previousX = previousX + STEP_LENGTH * step.getLength();
-                    previousY = previousY - STEP_LENGTH * step.getLength();
+                    previousX = previousX + iconSize * step.getLength();
+                    previousY = previousY - iconSize * step.getLength();
                     result.addPoint(previousX, previousY);
                     break;
                 case DOWN_RIGHT:
-                    previousX = previousX + STEP_LENGTH * step.getLength();
-                    previousY = previousY + STEP_LENGTH * step.getLength();
+                    previousX = previousX + iconSize * step.getLength();
+                    previousY = previousY + iconSize * step.getLength();
                     result.addPoint(previousX, previousY);
                     break;
                 case LEFT:
-                    previousX = previousX - STEP_LENGTH * step.getLength();
+                    previousX = previousX - iconSize * step.getLength();
                     result.addPoint(previousX, previousY);
                     break;
                 case UP_LEFT:
-                    previousX = previousX - STEP_LENGTH * step.getLength();
-                    previousY = previousY - STEP_LENGTH * step.getLength();
+                    previousX = previousX - iconSize * step.getLength();
+                    previousY = previousY - iconSize * step.getLength();
                     result.addPoint(previousX, previousY);
                     break;
                 case DOWN_LEFT:
-                    previousX = previousX - STEP_LENGTH * step.getLength();
-                    previousY = previousY + STEP_LENGTH * step.getLength();
+                    previousX = previousX - iconSize * step.getLength();
+                    previousY = previousY + iconSize * step.getLength();
                     result.addPoint(previousX, previousY);
                     break;
             }

@@ -8,7 +8,7 @@ import javafx.scene.layout.GridPane;
 
 import java.util.function.Consumer;
 
-public class LevelComponent extends Group {
+public final class LevelComponent extends Group {
     public LevelComponent(Level level, Consumer<Level> onDelete, Consumer<Level> onEdit) {
         GridPane gridPane = new GridPane();
         Button deleteButton = new Button("Удалить");
@@ -21,7 +21,7 @@ public class LevelComponent extends Group {
         });
         gridPane.add(deleteButton, 0, 0);
         gridPane.add(editButton, 0, 1);
-        gridPane.add(new LevelCanvas(level), 0, 2);
+        gridPane.add(new LevelCanvas(level, 300, 250, 15), 0, 2);
         getChildren().add(gridPane);
     }
 }

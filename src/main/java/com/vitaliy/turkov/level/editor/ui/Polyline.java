@@ -3,7 +3,7 @@ package com.vitaliy.turkov.level.editor.ui;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Polyline {
+public final class Polyline {
     private final List<Integer> x;
     private final List<Integer> y;
     private Integer pointCount;
