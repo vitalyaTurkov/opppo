@@ -46,18 +46,18 @@ class NumberField {
 class ComboBox {
 }
 
-MainUI --* MainUIRoot
+MainUI *-- MainUIRoot
 Group <|-- MainUI
-MainUIRoot --* LevelComponent
-MainUIRoot --* EditLevelComponent
+MainUIRoot *-- LevelComponent
+MainUIRoot *-- EditLevelComponent
 Application <|-- LevelEditor
-LevelEditor --* MainUI
-LevelComponent --* Button
-EditLevelComponent --* Button
-EditLevelComponent --* NumberField
-EditLevelComponent --* ComboBox
-EditLevelComponent --* LevelCanvas
-LevelComponent --* LevelCanvas
+LevelEditor *-- MainUI
+LevelComponent *-- Button
+EditLevelComponent *-- Button
+EditLevelComponent *-- NumberField
+EditLevelComponent *-- ComboBox
+EditLevelComponent *-- LevelCanvas
+LevelComponent *-- LevelCanvas
 Canvas <|-- LevelCanvas
 MainUI - workWithFile
 

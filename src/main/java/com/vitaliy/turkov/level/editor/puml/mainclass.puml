@@ -48,6 +48,11 @@ class LevelDeserializerFromString {
 class LevelSerializerToString {
 }
 
+class Scanner {
+    constructor(String string);
+    +String nextLine();
+    +String hasNextLine();
+}
 
 }
 Storage <|.. StorageFromFile
@@ -57,6 +62,7 @@ Serializer <|.. LevelSerializerToString
 StorageFromFile ..> File
 StorageFromFile ..> Deserializer
 StorageFromFile ..> Serializer
+Scanner <.. File
 
 
 
