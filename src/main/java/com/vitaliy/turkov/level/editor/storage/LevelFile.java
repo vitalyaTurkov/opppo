@@ -31,6 +31,7 @@ public final class LevelFile implements File {
                 scanner.nextLine();
             } else {
                 content.append(scanner.nextLine());
+                content.append("\n");
             }
         }
         FileWriter fileWriter = new FileWriter(path);
@@ -49,10 +50,20 @@ public final class LevelFile implements File {
                 scanner.nextLine();
             } else {
                 content.append(scanner.nextLine());
+                content.append("\n");
             }
         }
         FileWriter fileWriter = new FileWriter(path);
         fileWriter.write(content.toString());
+        fileWriter.flush();
+        fileWriter.close();
+    }
+
+    @SneakyThrows
+    @Override
+    public void append(String item) {
+        FileWriter fileWriter = new FileWriter(path, true);
+        fileWriter.append(item);
         fileWriter.flush();
         fileWriter.close();
     }
