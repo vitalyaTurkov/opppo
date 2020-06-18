@@ -1,5 +1,8 @@
 package com.vitaliy.turkov.level.editor.entity;
 
+import java.util.Arrays;
+import java.util.List;
+
 public enum Direction {
     UP("Up"),
     DOWN("Down"),
@@ -23,5 +26,18 @@ public enum Direction {
     @Override
     public String toString() {
         return name;
+    }
+
+    public static List<Direction> asList() {
+        return Arrays.asList(
+                UP,
+                DOWN,
+                RIGHT,
+                UP_RIGHT,
+                DOWN_RIGHT,
+                LEFT,
+                UP_LEFT,
+                DOWN_LEFT
+        );
     }
 }
